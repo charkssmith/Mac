@@ -1,0 +1,28 @@
+# check wake requests
+pmset -g log | grep "Wake Requests"
+
+# check wake logs 
+pmset -g log | grep darkwake
+
+# statistics
+pmset -g stats 
+
+# check if powernap is enabled
+sudo pmset -g
+
+# log battery usage
+➜  ~ pmset -g log                
+PM ASL data store: /var/log/powermanagement
+
+# disable powernap
+1.Run command in terminal: sudo pmset -a tcpkeepalive 0
+2.Run command in terminal: sudo pmset -a powernap 0
+
+
+# references
+https://discussions.apple.com/thread/252061187?page=1
+
+I've found out an easier way to sovle this issue:
+1.Run command in terminal: sudo pmset -a tcpkeepalive 0
+2.Run command in terminal: sudo pmset -a powernap 0
+3.Make sure these options is not checked: "System Preferences->Battery->Optimized battery charging" and "System Preferences->Battery->Power Adapter->Wake for network access"
